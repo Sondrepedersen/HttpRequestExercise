@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 
+
 public class HttpClient {
 
     private final int statusCode;
@@ -21,6 +22,8 @@ public class HttpClient {
         String myResponseMessage = result.toString();
         this.statusCode = Integer.parseInt(myResponseMessage.split(" ")[1]);
         System.out.println(result);
+
+
     }
 
     public static void main(String[] args) throws IOException {
@@ -31,6 +34,10 @@ public class HttpClient {
     public Integer getStatusCode() {
         return statusCode;
     };
+
+   /* public String getHeader(String fieldName) {
+        return headerFields.get(fieldName);
+    }*/
 
 
 }
