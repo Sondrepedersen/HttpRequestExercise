@@ -11,7 +11,6 @@ public class HttpClient {
         Socket socket = new Socket(host , port);
         socket.getOutputStream().write(("GET " + requestTarget +
                 " HTTP/1.1\r\nHost: " + host + "\r\n\r\n").getBytes());
-
         StringBuilder result = new StringBuilder();
         InputStream in = socket.getInputStream();
 
@@ -22,14 +21,13 @@ public class HttpClient {
         String myResponseMessage = result.toString();
         this.statusCode = Integer.parseInt(myResponseMessage.split(" ")[1]);
         System.out.println(result);
-
-
     }
 
     public static void main(String[] args) throws IOException {
         HttpClient client = new HttpClient("httpbin.org" , 80 , "/html");
         //System.out.println(client.getStatusCode());
     }
+
 
     public Integer getStatusCode() {
         return statusCode;
